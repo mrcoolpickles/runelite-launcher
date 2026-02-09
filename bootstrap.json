@@ -1,9 +1,9 @@
 {
     "artifacts": [
         {
-            "hash": "caf3eb630dc6d5b46a20cd6c075cf7f61e37df79daa4fbb7d7fca156bd37c6ca",
-            "name": "client-1.11.11.jar",
-            "path": "https://repo.runelite.net/net/runelite/client/1.11.11/client-1.11.11.jar",
+            "hash": "CD7721783C3935486E03540DF312F902CA200C78E61E21DD4C183F535F78D621",
+            "name": "FateRSPS.jar",
+            "path": "https://www.fate-rsps.com/downloads/FateRSPS.jar",
             "size": 5203409
         }
     ],
@@ -84,5 +84,5 @@
         "-Xss2m",
         "-XX:CompileThreshold=1500"
     ],
-    "version": "1.11.11"
+    "version": "1.10.52"
 }

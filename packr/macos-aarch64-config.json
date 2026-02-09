@@ -1,6 +1,6 @@
 {
   "classPath": [
-    "Jirenyte.jar"
+    "FateRSPS.jar"
   ],
   "mainClass": "net.runelite.launcher.Launcher",
   "vmArgs": [
