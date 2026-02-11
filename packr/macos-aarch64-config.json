@@ -1,6 +1,6 @@
 {
   "classPath": [
-    "FateRSPS.jar"
+    "DeadMoore.jar"
   ],
   "mainClass": "net.runelite.launcher.Launcher",
   "vmArgs": [

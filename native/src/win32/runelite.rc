@@ -11,9 +11,9 @@ BEGIN
     BEGIN
         BLOCK "040904B0"
         BEGIN
-            VALUE "FileDescription",  "FateRSPS"
-            VALUE "OriginalFilename", "FateRSPS.exe"
-            VALUE "ProductName",      "FateRSPS Launcher"
+            VALUE "FileDescription",  "DeadMoore"
+            VALUE "OriginalFilename", "DeadMoore.exe"
+            VALUE "ProductName",      "DeadMoore Launcher"
         END
     END
 

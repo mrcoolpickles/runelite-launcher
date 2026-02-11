@@ -90,8 +90,8 @@ class Updater
 		Path path = Paths.get(command.get());
 
 		// on macOS packr changes the cwd to the resource directory prior to launching the JVM,
-		// causing current.info().command() to return /Applications/FateRSPS.app/Contents/Resources/./FateRSPS
-		// despite the executable really being at /Applications/FateRSPS.app/Contents/MacOS/FateRSPS
+		// causing current.info().command() to return /Applications/DeadMoore.app/Contents/Resources/./DeadMoore
+		// despite the executable really being at /Applications/DeadMoore.app/Contents/MacOS/DeadMoore
 		path = path.normalize()
 			.resolveSibling(Path.of("..", "MacOS", path.getFileName().toString()))
 			.normalize();
@@ -342,7 +342,7 @@ class Updater
 			return;
 		}
 
-		// the installer kills running FateRSPS processes, so check that there are no others running
+		// the installer kills running DeadMoore processes, so check that there are no others running
 		List<ProcessHandle> allProcesses = ProcessHandle.allProcesses().collect(Collectors.toList());
 		for (ProcessHandle ph : allProcesses)
 		{

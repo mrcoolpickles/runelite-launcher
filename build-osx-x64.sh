@@ -2,11 +2,11 @@
 
 set -e
 
-APPBASE="build/macos-x64/FateRSPS.app"
+APPBASE="build/macos-x64/DeadMoore.app"
 
 build() {
     echo Launcher sha256sum
-    shasum -a 256 build/libs/FateRSPS.jar
+    shasum -a 256 build/libs/DeadMoore.jar
 
     pushd native
     cmake -DCMAKE_OSX_ARCHITECTURES=x86_64 -B build-x64 .
@@ -26,8 +26,8 @@ build() {
 
     mkdir -p $APPBASE/Contents/{MacOS,Resources}
 
-    cp native/build-x64/src/FateRSPS $APPBASE/Contents/MacOS/
-    cp build/libs/FateRSPS.jar $APPBASE/Contents/Resources/
+    cp native/build-x64/src/DeadMoore $APPBASE/Contents/MacOS/
+    cp build/libs/DeadMoore.jar $APPBASE/Contents/Resources/
     cp packr/macos-x64-config.json $APPBASE/Contents/Resources/config.json
     cp build/filtered-resources/Info.plist $APPBASE/Contents/
     cp osx/runelite.icns $APPBASE/Contents/Resources/icons.icns
@@ -36,12 +36,12 @@ build() {
     mkdir $APPBASE/Contents/Resources/jre
     mv jdk-$MAC_AMD64_VERSION-jre/Contents/Home/* $APPBASE/Contents/Resources/jre
 
-    echo Setting world execute permissions on FateRSPS
+    echo Setting world execute permissions on DeadMoore
     pushd $APPBASE
-    chmod g+x,o+x Contents/MacOS/FateRSPS
+    chmod g+x,o+x Contents/MacOS/DeadMoore
     popd
 
-    otool -l $APPBASE/Contents/MacOS/FateRSPS
+    otool -l $APPBASE/Contents/MacOS/DeadMoore
 }
 
 dmg() {
@@ -51,24 +51,24 @@ dmg() {
     # create-dmg exits with an error code due to no code signing, but is still okay
     # note we use Adam-/create-dmg as upstream does not support UDBZ
     create-dmg --format UDBZ $APPBASE . || true
-    mv FateRSPS\ *.dmg FateRSPS-x64.dmg
+    mv DeadMoore\ *.dmg DeadMoore-x64.dmg
 
     # dump for CI
-    hdiutil imageinfo FateRSPS-x64.dmg
+    hdiutil imageinfo DeadMoore-x64.dmg
 
-    if ! hdiutil imageinfo FateRSPS-x64.dmg | grep -q "Format: UDBZ" ; then
+    if ! hdiutil imageinfo DeadMoore-x64.dmg | grep -q "Format: UDBZ" ; then
         echo "Format of resulting dmg was not UDBZ, make sure your create-dmg has support for --format"
         exit 1
     fi
 
-    if ! hdiutil imageinfo FateRSPS-x64.dmg | grep -q "Apple_HFS" ; then
+    if ! hdiutil imageinfo DeadMoore-x64.dmg | grep -q "Apple_HFS" ; then
         echo Filesystem of dmg is not Apple_HFS
         exit 1
     fi
 
     # Notarize app
-    if xcrun notarytool submit FateRSPS-x64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
-        xcrun stapler staple FateRSPS-x64.dmg
+    if xcrun notarytool submit DeadMoore-x64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
+        xcrun stapler staple DeadMoore-x64.dmg
     fi
 }
 

@@ -36,7 +36,7 @@ repositories {
 
 group = "net.runelite"
 version = "2.7.6-SNAPSHOT"
-description = "FateRSPS Launcher"
+description = "DeadMoore Launcher"
 
 dependencies {
     implementation(libs.slf4j.api)
@@ -89,7 +89,7 @@ tasks {
         filesMatching("**/*.properties") {
             val props = if (project.findProperty("RUNELITE_BUILD") as? String == "runelite")
                 arrayOf(
-                    "runelite_net" to "fate-rsps.com",
+                    "runelite_net" to "deadmoore.info",
                     "runelite_128" to "runelite_128.png",
                     "runelite_splash" to "runelite_splash.png"
                 )

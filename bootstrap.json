@@ -1,10 +1,10 @@
 {
     "artifacts": [
         {
-            "hash": "CD7721783C3935486E03540DF312F902CA200C78E61E21DD4C183F535F78D621",
-            "name": "FateRSPS.jar",
-            "path": "https://www.fate-rsps.com/downloads/FateRSPS.jar",
-            "size": 5203409
+            "hash": " 2096C8B37D2FCE54239ECB89560A66D353264B9BBA1167961627576BDFC2BAEE",
+            "name": "DeadMoore.jar",
+            "path": "https://www.deadmoore.info/downloads/DeadMoore.jar",
+            "size": 56671271
         }
     ],
     "clientJvm17Arguments": [
